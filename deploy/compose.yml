@@ -1,0 +1,10 @@
+# Despliegue de OWASP Juice Shop en pps-dev (SOLO desarrollo).
+# Juice Shop es vulnerable a propósito: no se despliega en pre ni en pro.
+#   docker compose -p aNN-juiceshop -f deploy/compose.yml up -d --build
+
+services:
+  juiceshop:
+    build: ..
+    ports:
+      - "${JS_PORT:?falta JS_PORT}:3000"
+    restart: unless-stopped
